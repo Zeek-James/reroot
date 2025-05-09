@@ -126,7 +126,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/mac/Desktop/zenux/reroot/src/generated/prisma",
+      "value": "/Users/mac/Desktop/zenux/trill/reroot/src/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -140,12 +140,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Users/mac/Desktop/zenux/reroot/prisma/schema.prisma",
+    "sourceFilePath": "/Users/mac/Desktop/zenux/trill/reroot/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
-    "schemaEnvPath": "../../../.env"
+    "rootEnvPath": null
   },
   "relativePath": "../../../prisma",
   "clientVersion": "6.7.0",
@@ -154,11 +153,12 @@ const config = {
     "db"
   ],
   "activeProvider": "sqlite",
+  "postinstall": true,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "file:./dev.db"
+        "value": null
       }
     }
   },
