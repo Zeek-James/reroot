@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Worker {
+  id        String    @id @default(cuid())
+  name      String
+  role      String
+  createdAt DateTime  @default(now())
+  harvests  Harvest[]
+}
+
+model Harvest {
+  id        String   @id @default(cuid())
+  date      DateTime @default(now())
+  field     String
+  quantity  Int
+  workerId  String
+  createdAt DateTime @default(now())
+  worker    Worker   @relation(fields: [workerId], references: [id])
+}

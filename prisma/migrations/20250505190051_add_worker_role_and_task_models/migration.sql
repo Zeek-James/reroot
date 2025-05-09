@@ -1,0 +1,10 @@
+-- CreateTable
+CREATE TABLE "Harvest" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "date" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "field" TEXT NOT NULL,
+    "quantity" INTEGER NOT NULL,
+    "workerId" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "Harvest_workerId_fkey" FOREIGN KEY ("workerId") REFERENCES "Worker" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
