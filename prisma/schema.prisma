@@ -8,14 +8,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Worker {
-  id        String    @id @default(cuid())
-  name      String
-  role      String
-  createdAt DateTime  @default(now())
-  harvests  Harvest[]
-}
-
 model Harvest {
   id        String   @id @default(cuid())
   date      DateTime @default(now())
@@ -24,4 +16,25 @@ model Harvest {
   workerId  String
   createdAt DateTime @default(now())
   worker    Worker   @relation(fields: [workerId], references: [id])
+}
+
+
+model Worker {
+  id        String    @id @default(cuid())
+  name      String
+  role      String    // Role here could be 'admin', 'supervisor', 'worker'
+  createdAt DateTime  @default(now())
+  harvests  Harvest[]
+ userId    Int?     @unique // Foreign key to the User model, matching the type of User.id
+  user      User?    @relation(fields: [userId], references: [id], name: "UserToWorker") // One-to-one relation
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  password  String   // Used for authentication, hashed in the database
+  role      String   // 'admin', 'supervisor', 'worker', etc.
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+   worker    Worker?  @relation(name: "UserToWorker") // Reverse relation, no need to specify fields and references here
 }

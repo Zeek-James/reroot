@@ -117,13 +117,6 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.WorkerScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  role: 'role',
-  createdAt: 'createdAt'
-};
-
 exports.Prisma.HarvestScalarFieldEnum = {
   id: 'id',
   date: 'date',
@@ -133,15 +126,38 @@ exports.Prisma.HarvestScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.WorkerScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  role: 'role',
+  createdAt: 'createdAt',
+  userId: 'userId'
+};
+
+exports.Prisma.UserScalarFieldEnum = {
+  id: 'id',
+  username: 'username',
+  password: 'password',
+  role: 'role',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
 
 exports.Prisma.ModelName = {
+  Harvest: 'Harvest',
   Worker: 'Worker',
-  Harvest: 'Harvest'
+  User: 'User'
 };
 
 /**
